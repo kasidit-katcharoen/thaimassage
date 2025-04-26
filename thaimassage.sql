@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 05, 2022 at 02:26 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 7.3.29
+-- Host: db
+-- Generation Time: Apr 26, 2025 at 04:27 PM
+-- Server version: 9.3.0
+-- PHP Version: 8.2.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `dateoff` (
-  `dateoff_id` int(11) NOT NULL,
+  `dateoff_id` int NOT NULL,
   `dateoff_date` date NOT NULL,
   `dateoff_comment` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -40,10 +40,10 @@ CREATE TABLE `dateoff` (
 --
 
 CREATE TABLE `dateroundlimit` (
-  `dateroundlimit_id` int(10) NOT NULL,
+  `dateroundlimit_id` int NOT NULL,
   `datelimit` varchar(10) NOT NULL COMMENT 'จำกัดจำนวนวันจองล่วงหน้า',
   `roundlimit` varchar(10) NOT NULL COMMENT 'จำกัดจำนวนคนต่อรอบ'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `dateroundlimit`
@@ -59,7 +59,7 @@ INSERT INTO `dateroundlimit` (`dateroundlimit_id`, `datelimit`, `roundlimit`) VA
 --
 
 CREATE TABLE `doctor` (
-  `doctor_id` int(11) NOT NULL COMMENT 'รหัสหมอ',
+  `doctor_id` int NOT NULL COMMENT 'รหัสหมอ',
   `doctor_img` varchar(255) NOT NULL COMMENT 'รูปภาพหมอ',
   `doctor_prefix_name` varchar(20) NOT NULL COMMENT 'คำนำหน้า',
   `doctor_fname` varchar(50) NOT NULL COMMENT 'ชื่อจริง',
@@ -69,7 +69,7 @@ CREATE TABLE `doctor` (
   `doctor_transcript` varchar(255) NOT NULL COMMENT 'วุฒิการศึกษา',
   `doctor_sort` varchar(10) NOT NULL DEFAULT '999' COMMENT 'ลำดับการเรียง',
   `doctor_allow` varchar(30) NOT NULL DEFAULT 'อนุญาต' COMMENT 'การอนุญาต'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `doctor`
@@ -90,13 +90,13 @@ INSERT INTO `doctor` (`doctor_id`, `doctor_img`, `doctor_prefix_name`, `doctor_f
 --
 
 CREATE TABLE `news` (
-  `news_id` int(10) NOT NULL,
+  `news_id` int NOT NULL,
   `news_date` date NOT NULL,
   `news_time` varchar(100) NOT NULL,
   `news_content` text NOT NULL,
   `news_img` text NOT NULL,
   `news_allow` varchar(30) NOT NULL DEFAULT 'อนุญาต'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,7 @@ CREATE TABLE `news` (
 --
 
 CREATE TABLE `reserve` (
-  `reserve_id` int(10) NOT NULL COMMENT 'รหัสรายการจอง',
+  `reserve_id` int NOT NULL COMMENT 'รหัสรายการจอง',
   `reserve_prefixname` varchar(20) NOT NULL COMMENT 'คำนำหน้าผู้จอง',
   `reserve_fname` varchar(30) NOT NULL COMMENT 'ชื่อผู้จอง',
   `reserve_lname` varchar(30) NOT NULL COMMENT 'นามสกุลผู้จอง',
@@ -122,8 +122,8 @@ CREATE TABLE `reserve` (
   `reserve_congenital_disease` varchar(50) NOT NULL COMMENT 'โรคประจำตัว',
   `reserve_drug_allergy` varchar(50) NOT NULL COMMENT 'ประวัติการเเพ้ยา',
   `reserve_vaccine_covid_19` varchar(20) NOT NULL COMMENT 'ประวัติการฉีดวัคฉีน ยังไม่ฉีด, ฉีด 1 เข็ม, ฉีด 2 เข็ม, ฉีดมากว่า 2 เข็ม',
-  `user_id` int(10) NOT NULL COMMENT 'รหัสผู้ใช้งาน'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `user_id` int NOT NULL COMMENT 'รหัสผู้ใช้งาน'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -132,10 +132,10 @@ CREATE TABLE `reserve` (
 --
 
 CREATE TABLE `times` (
-  `times_id` int(11) NOT NULL,
+  `times_id` int NOT NULL,
   `times_timesoff` varchar(150) NOT NULL,
   `times_date` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -144,7 +144,7 @@ CREATE TABLE `times` (
 --
 
 CREATE TABLE `user` (
-  `user_id` int(11) NOT NULL COMMENT 'รหัสผู้ใช้งาน',
+  `user_id` int NOT NULL COMMENT 'รหัสผู้ใช้งาน',
   `user_name_prefix` varchar(10) NOT NULL COMMENT 'คำนำหน้าชื่อ',
   `user_fname` varchar(50) NOT NULL COMMENT 'ชื่อจริง',
   `user_lname` varchar(50) NOT NULL COMMENT 'นามสกุล',
@@ -158,7 +158,14 @@ CREATE TABLE `user` (
   `user_congenital_disease` varchar(50) NOT NULL COMMENT 'โรคประจำตัวผู้ใช้งาน',
   `user_drug_allergy` varchar(50) NOT NULL COMMENT 'ประวัติการแพ้ยาผู้ใช้งาน',
   `user_vaccine_covid_19` varchar(30) NOT NULL COMMENT 'ประวัติการฉีดวัคฉีน ยังไม่ฉีด, ฉีด 1 เข็ม, ฉีด 2 เข็ม, ฉีดมากว่า 2 เข็ม\r\n'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `user_name_prefix`, `user_fname`, `user_lname`, `user_sex`, `user_age`, `user_card_id`, `user_tel`, `user_address`, `user_type`, `user_allow`, `user_congenital_disease`, `user_drug_allergy`, `user_vaccine_covid_19`) VALUES
+(1, '', 'admin', '', '', '', '0000000000000', '0000000000', '', 'ผู้ดูแลระบบ', 'อนุญาต', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -214,37 +221,37 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `dateoff`
 --
 ALTER TABLE `dateoff`
-  MODIFY `dateoff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `dateoff_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `doctor`
 --
 ALTER TABLE `doctor`
-  MODIFY `doctor_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสหมอ', AUTO_INCREMENT=10;
+  MODIFY `doctor_id` int NOT NULL AUTO_INCREMENT COMMENT 'รหัสหมอ', AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `news_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=422;
+  MODIFY `news_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=422;
 
 --
 -- AUTO_INCREMENT for table `reserve`
 --
 ALTER TABLE `reserve`
-  MODIFY `reserve_id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัสรายการจอง', AUTO_INCREMENT=200;
+  MODIFY `reserve_id` int NOT NULL AUTO_INCREMENT COMMENT 'รหัสรายการจอง', AUTO_INCREMENT=200;
 
 --
 -- AUTO_INCREMENT for table `times`
 --
 ALTER TABLE `times`
-  MODIFY `times_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `times_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสผู้ใช้งาน', AUTO_INCREMENT=125;
+  MODIFY `user_id` int NOT NULL AUTO_INCREMENT COMMENT 'รหัสผู้ใช้งาน', AUTO_INCREMENT=125;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
