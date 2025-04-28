@@ -1,5 +1,5 @@
 <?
-header("content-type: application/x-javascript; charset=UTF-8");
+// header("content-type: application/x-javascript; charset=UTF-8");
 ?>
 <?php
 $qry_status = "SELECT * FROM reserve WHERE reserve_status = 'รอการอนุมัติ' ";

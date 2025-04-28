@@ -1,5 +1,5 @@
 <?
-header("content-type: application/x-javascript; charset=UTF-8");
+// header("content-type: application/x-javascript; charset=UTF-8");
 ?>
 <div class="container-fluid">
   <div class="row justify-content-center mt-xl-5 mt-lg-5 mt-sm-5 mt-3">

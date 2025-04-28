@@ -1,5 +1,5 @@
 <?
-header("content-type: application/x-javascript; charset=UTF-8");
+// header("content-type: application/x-javascript; charset=UTF-8");
 ?>
 <div class="container-fluid pb-xl-5 pb-lg-5 pb-md-5 pb-sm-5 py-3">
   <a id="News"></a>

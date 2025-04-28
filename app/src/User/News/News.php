@@ -1,5 +1,5 @@
 <?
-header("content-type: application/x-javascript; charset=UTF-8");
+// header("content-type: application/x-javascript; charset=UTF-8");
 ?>
   <div class="container-fluid py-xl-5 py-0 ">
     <div class="row justify-content-center">

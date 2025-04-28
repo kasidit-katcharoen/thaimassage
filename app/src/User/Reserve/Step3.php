@@ -336,7 +336,7 @@ function cb_datalimit(datelimit) {
                 $('#T-16-00').hide();
                 cnt_day_cancle5 = 1 ;
               }
-              if (datapack[5]>= numstopround) {
+              if (datapack[5]>= parseInt(datelimit[1])) {
                 $('#T-18-00').hide();
                 cnt_day_cancle6 = 1 ;
               }

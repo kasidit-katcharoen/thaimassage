@@ -1,5 +1,5 @@
 <?
-header("content-type: application/x-javascript; charset=UTF-8");
+// header("content-type: application/x-javascript; charset=UTF-8");
 ?>
 <?php
 require '../../Connect.php';

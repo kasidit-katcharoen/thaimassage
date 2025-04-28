@@ -1,7 +1,7 @@
 <?php
-ini_set('display_errors', '0');
-ini_set('display_startup_errors', '0');
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT);
+// ini_set('display_errors', '0');
+// ini_set('display_startup_errors', '0');
+// error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT);
 session_start();
 require 'Header.php';
 
@@ -23,7 +23,7 @@ if (isset($_SESSION["user_id"])) {
 }
 
 ?>
-<input type="hidden" name="" value="<?php echo $_GET['action']; ?>" id="active_menu">
+<input type="hidden" name="" value="<?php echo $_GET['action']??''; ?>" id="active_menu">
 <div class="container-fluid position-relative" >
   <div class="row justify-content-start">
     <div class="col-xl-2 col-lg-12 col-md-12 col-sm-12 col-12 bg-light ablmenu heigthmenu border-left shadow" >
@@ -49,7 +49,7 @@ if (isset($_SESSION["user_id"])) {
           ผู้ดูแลระบบ : <?php echo $_SESSION["fullname"]; ?>
         </div>
         <div class="col-12 my-3">
-          <div class="d-flex justify-content-center">
+          <div class="row justify-content-center">
             <div class="col-auto d-flex justify-content-center">
               <a href="Admin.php?action=HomeAdmin"class="btn zoom shadow-none"><i class="fa fa-home txt01" aria-hidden="true" style="font-size:18px;"></i><br /><span class="txt11 fw-bold txt01">หน้าหลัก</span></a>
             </div>

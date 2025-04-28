@@ -157,7 +157,7 @@ function topFunction() {
         <form class="needs-validation" novalidate id="SmFormLogin">
 
           <div class="form-floating mb-3">
-            <input class="form-control txt13 shadow-none" id="login_card_id" placeholder="เลขบัตรประชาชน (ตัวเลข 13 หลัก)" required></input>
+            <input class="form-control txt13 shadow-none" id="login_card_id" placeholder="เลขบัตรประชาชน (ตัวเลข 13 หลัก)" maxlength="13" minlength="13" required></input>
             <label class="text-secondary txt13"for="floatingTextarea">เลขบัตรประชาชน</label>
             <div class="invalid-feedback">
               โปรดระบุเลขบัตรประชาชน 13 หลัก
@@ -165,7 +165,7 @@ function topFunction() {
           </div>
 
           <div class="form-floating mb-3">
-            <input class="form-control txt13 shadow-none" id="login_tel" placeholder="เบอร์โทรศัพท์ (ตัวเลข 0-9)" required></input>
+            <input class="form-control txt13 shadow-none" id="login_tel" placeholder="เบอร์โทรศัพท์ (ตัวเลข 0-9)" maxlength="10" minlength="10" required></input>
             <label class="text-secondary txt13"for="floatingTextarea">เบอร์โทรศัพท์</label>
             <div class="invalid-feedback">
               โปรดระบุเบอร์โทรศัพท์ 10 หลัก
